@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+    <!-- bootstrap css -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+
+    <div class="container-fluid my-5">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-5">
+                <h2 class="text-center mb-4 text-muted">Register Form</h2>
+                <form  class="shadow p-4" autocomplete="off" onsubmit="return handleSubmit()">
+                    <div class="mb-3 form-floating">
+                        <input type="text" 
+                        id="fname"
+                        name="fname" class="form-control" placeholder="First Name" onkeyup="fnameValidate()" >  
+                      <label for="fname">First Name</label>
+
+                      <span id="fnameMsg"></span>
+
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="text" 
+                        id="lname"
+                        name="lname" class="form-control" placeholder="Last Name"
+                        onkeyup="lnameValidate()"
+                        >  
+                      <label for="lname">Last Name</label>
+
+                      <span id="lnameMsg"></span>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input
+                        id="email"
+                        type="email" name="email" class="form-control" placeholder="Email"
+                        onkeyup="emailValidate()"
+                        >  
+                      <label for="email">Email</label>
+
+                      <span id="emailMsg"></span>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input 
+                        id="password"
+                        type="password" name="password" class="form-control" placeholder="password"
+                        onkeyup="passwordValidate()"
+                        >  
+                      <label for="password">Password</label>
+
+                      <span id="passwordMsg"></span>
+                    </div>
+                    <div class="mb-3 form-floating">
+                        <input type="password" 
+                        id="cpassword"
+                        name="cpassword" class="form-control" placeholder="Confirm Password"
+                        onkeyup="cpasswordValidate()"
+                        >  
+                      <label for="cpassword">Confirm Password</label>
+
+                      <span id="cpasswordMsg"></span>
+                    </div>
+
+
+                    <div class="mb-3 form-floating">
+                        <input type="number" 
+                        id="age"
+                        name="age" class="form-control" placeholder="age"
+                        onkeyup="ageValidate()"
+                        >  
+                      <label for="age">Age</label>
+
+                      <span id="ageMsg"></span>
+                    </div>
+                    <div>
+                        <input type="submit" value="Register" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./pr41_form.js"></script>
+  </body>
+</html>

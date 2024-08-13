@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>onmouseover and onmouseout</title>
+    <style>
+      .content {
+        height: 200px;
+        width: 200px;
+        margin: auto;
+      }
+      .content img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content" onmouseover="change()" onmouseout="previous()">
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnZ22nKZ2e92aTDby6JBTZwDJPrTpy12vm0Q&s"
+        alt="nature"
+      />
+    </div>
+
+    <script>
+      // img.onmouseover = function(){
+      //     img.style.filter = "brightness(0.5)";
+      //     }
+      var img = document.querySelector("img");
+      const change = () => {
+        img.src =
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPK8-We4jW88eCl6z36B44A9T7Y6XY0kSKITx-77xo2GJVph151oTg4ZUWYHdtiYwe-Ow&usqp=CAU";
+      };
+      const previous = () => {
+        img.src =
+          "https://encrypted-tbn0.gstatic.com/imagesq=tbn:ANd9GcTnZ22nKZ2e92aTDby6JBTZwDJPrTpy12vm0Q&s";
+      };
+    </script>
+  </body>
+</html>

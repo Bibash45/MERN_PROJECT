@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-index</title>
+    <style>
+        .first{
+            height: 100px;
+            width: 300px;
+            border: 10px solid green;
+            position: absolute;
+            left: 38%;
+            top: 23%;
+            z-index: 1;
+        }
+        .second{
+            height: 100px;
+            width: 300px;
+            border: 10px solid red;
+            position: absolute;
+            left: 33%;
+            top: 25%;
+            z-index: 2;
+        }
+        .third{
+            height: 100px;
+            width: 300px;
+            border: 10px solid blue;
+            position: absolute;
+            left: 35%;
+            top: 20%;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="first"></div>
+    <div class="second"></div>
+    <div class="third"></div>
+</body>
+</html>

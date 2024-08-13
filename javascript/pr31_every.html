@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Every</title>
+  </head>
+  <body>
+    <script>
+      // every will return true if all the element of the array passes the test/condition
+
+      const prices = [20, 30, 40, 50, 60];
+      //   const result = prices.every((data) => {
+      //     return data > 30;
+      //   });
+
+      const result = prices.every((data) => data > 30);
+      document.write(`${result}<br>`);
+
+      // some will return true if any one of the array passes the test or conditions.
+
+      const final = prices.some((data) => data > 30);
+      document.write(`${final}<br>`);
+
+      // find -> it will return the first element which passes the test 
+
+      const test = [10,20,30,40,50]
+      const check = test.find(a=>a>10)
+      document.write(`${check}<br>`);
+
+      //includes()
+      
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Storage and Session Storage</title>
+  </head>
+  <body>
+    <div id="output"></div>
+    <button id="remove-button">Remove</button>
+    <button id="add-button">add</button>
+
+    <script>
+      // Set item in the local storage
+      localStorage.setItem("test", "This is the local storage");
+
+      // Get item from the local storage
+      const data = localStorage.getItem("test");
+
+      // Display data in the div element
+      document.getElementById("output").innerText = data;
+
+      // Remove item from local storage
+      const remove = () => {
+        localStorage.removeItem("test");
+        document.getElementById("output").innerText = "";
+      };
+      // set item from local storage
+      const add = () => {
+        localStorage.setItem("test", "This is the local storage");
+        document.getElementById("output").innerText =
+          localStorage.getItem("test");
+      };
+
+      // Add event listener to the button
+      document
+        .getElementById("remove-button")
+        .addEventListener("click", remove);
+
+      document.getElementById("add-button").addEventListener("click", add);
+
+      // json -> javascript object notation
+
+      const student = {
+        firstname: "ram",
+        lastname: "khadka",
+        age: 19,
+        height: 6,
+        subject: ["html", "css", "bootstrap"],
+      };
+      localStorage.setItem("demo", JSON.stringify(student));
+      const jsonData = JSON.parse(localStorage.getItem("demo"));
+      console.log(jsonData.firstname);
+      console.log(jsonData.lastname);
+      console.log(jsonData.age);
+    </script>
+  </body>
+</html>

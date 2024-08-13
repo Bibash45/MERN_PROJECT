@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Methods</title>
+</head>
+<body>
+    
+    <script>
+        const date = new Date();
+        document.write(`${date}<br>`)
+
+        // to get year -> .getFullYear()
+        document.write(`${date.getFullYear()}<br>`)
+        // to get months -> .getMonth() -> it will returns value from 0 -11
+        document.write(`${date.getMonth()}<br>`)
+        // to get Day -> .getDay() -> it will returns value from 0 -6
+        document.write(`${date.getDay()}<br>`)
+        // to get Date -> .geDate() -> it will returns value from 0 -6
+        document.write(`${date.getDate()}<br>`)
+        // to get hours -> .getHours() -> it will returns value from 0 -6
+        document.write(`${date.getHours()}<br>`)
+        // to get Minutes -> .getMinutes() -> it will returns value from 0 -6
+        document.write(`${date.getMinutes()}<br>`)
+        // to get Milliseconds -> .getMilliseconds() -> it will returns value from 0 -6
+        document.write(`${date.getMilliseconds()}<br>`)
+        // to get Time -> .getTime() -> it will returns value from 0 -6
+        document.write(`${date.getTime()}<br>`)
+        // to get TimezoneOffset -> .getTimezoneOffset() -> it will returns value from 0 -6
+        document.write(`${date.getTimezoneOffset()}<br>`)
+        // to get year month date
+        document.write(`${date.getFullYear()}-${(date.getMonth() + 1).toString().padStart
+        (2, '0')}-${date.getDate()}<br>`)
+        document.write(`${date.toLocaleDateString()}<br>`)
+        document.write(`${date.toLocaleTimeString()}<br>`)
+        document.write(`${date.toTimeString()}<br>`)
+        document.write(`${date.toDateString()}<br>`)
+
+        // set
+        const d = new Date()
+        d.setFullYear(2031)
+        document.write(`${d} <br>`)
+        document.write(`${d.getFullYear()}`)
+    </script>
+</body>
+</html>

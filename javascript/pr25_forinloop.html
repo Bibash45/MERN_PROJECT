@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For in Loop and for of loop</title>
+</head>
+<body>
+    
+
+
+    <script>
+
+        // for in loops worked through the iterable objects
+      const student = {
+        name: 'John',
+        address:'chautara',
+        age:30,
+        height:6,
+      }
+      for (let key in student) {
+        document.write(`${student[key]}<br>`)
+      }
+
+
+      // for of loop work through the iterable array
+      const students = ['John', 'Doe', 'chautara', '30']
+      for (let student of students) {
+        document.write(`${student}<br>`)
+      }
+
+
+         
+    </script>
+</body>
+</html>

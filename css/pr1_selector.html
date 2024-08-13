@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selector</title>
+    <style>
+        /* universal selector */
+
+    *{
+      margin: 0;
+      padding: 0;
+      font-family: cursive;
+      font-size: 50px;
+    }
+
+
+      /* element selector */
+
+      h2 {
+        color: blue;
+        font-size: 30px;
+      }
+      /* class selector */
+      .h3 {
+        color: red;
+        font-size: 25px;
+        text-align: end;
+      }
+      .h4 {
+        color: black;
+      }
+      /* Id selector */
+      #test {
+        color: green;
+        background: wheat;
+      }
+      /* grouping selector */
+      .h3,
+      #test {
+        font-style: italic;
+      }
+      /* priority of class and id */
+      .demo-text {
+        color: brown !important;
+      }
+      #content {
+        background-color: aqua;
+        background-color: aqua;
+        color: white;
+      }
+      /* inline element  */
+      .bold {
+        background-color: brown;
+        color: whitesmoke;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>This is style using element selector</h2>
+    <h2>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur
+      perferendis cupiditate maxime odio necessitatibus tempore impedit sunt ut
+      dignissimos corrupti!
+    </h2>
+    <h3 class="h3">This is style using class selector.</h3>
+    <h4 class="h3 h4">L adipisicing elit. Reprehenderit, repellat.</h4>
+
+    <h1 id="test">This is styled using Id selector</h1>
+    <p class="demo-text" id="content">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Est illum quidem
+      perspiciatis aut consequatur natus voluptatem quo? Fuga, harum alias!
+    </p>
+
+    <b class="bold">Lorem ipsum dolor sit amet consectetur.</b>
+  </body>
+</html>

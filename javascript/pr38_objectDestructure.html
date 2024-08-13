@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>object Destructure</title>
+  </head>
+  <body>
+    <script>
+      // object destructuring
+      let person = {
+        name: "John",
+        age: 30,
+        occupation: "Software Engineer",
+      };
+      const showData = ({ name, occupation }) => {
+        return `The name of the student is ${name}. He is ${occupation} <br>`;
+      };
+      const result = showData(person);
+      document.write(`${result}`);
+
+      const {name,age} = person;
+    //   const name = student.name
+    //   const age = student.age
+      document.write(`My name is ${name}. I am ${age} years old.<br>`);
+    </script>
+  </body>
+</html>

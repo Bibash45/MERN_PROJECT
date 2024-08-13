@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Loop</title>
+  </head>
+  <body>
+    <script>
+      // For Loop
+
+      //   for (let i = 0; i <= 20; i++) {
+      //     document.write(`${i}<br>`);
+      //   }
+
+      // nested loop -> loop inside loop
+    //   for (let i = 0; i < 2; i++) {
+    //     document.write(`Outer : ${i}<br>`);
+    //     for (let j = 0; j < 5; j++) {
+    //       document.write(`&nbsp;  Inner : ${j}<br>`);
+    //     }
+    //   }
+
+      // multiplication table of 1-5
+      for (let i = 1; i <= 5; i++) {
+        document.write(`Multiplication Table of ${i} <br>`);
+        for (let j = 1; j <= 10; j++) {
+          document.write(`${i} x ${j} = ${i * j} <br>`);
+        }
+      }
+    </script>
+  </body>
+</html>

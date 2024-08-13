@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>String Methods</title>
+  </head>
+  <body>
+    <script>
+      let text =
+        "This is the javascript class and javascript is a client side scripting language";
+      document.write(`${text}<br>`);
+      document.write(`${text[0]}<br>`);
+      document.write(`${text[6]}<br>`);
+
+      // to count the length of the string  -> .length
+      document.write(`${text.length}<br>`);
+      //indexOf()
+      document.write(`${text.indexOf("javascript")}<br>`);
+      //search()
+      document.write(`${text.search("javascript")}<br>`)
+      //lastIndexOf()
+      document.write(`${text.lastIndexOf('javascript')}<br>`)
+      //replace()
+      document.write(`${text.replace("javascript", "python")}<br>`)
+      //replaceAll()
+      document.write(`${text.replaceAll("javascript", "python")}<br>`)
+      //toUppercase()
+      document.write(`${text.toUpperCase()}<br>`)
+      //includes() -> includes will return true if the particular string or character is present 
+      document.write(`${text.includes("javascript")}<br>`)
+      document.write(`${text.includes("j")}<br>`)
+
+      // slice(start,end)
+      document.write(`${text.slice(0, 10)}<br>`)
+      //substring(start,end)
+      document.write(`${text.substring(0, 10)}<br>`)
+      //substr(start,length)
+      document.write(`${text.substr(5, 10)}<br>`)
+    </script>
+  </body>
+</html>

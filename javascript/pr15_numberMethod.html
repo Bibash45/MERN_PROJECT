@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Method</title>
+</head>
+<body>
+    
+    <script>
+        let number = 124.456789
+        document.write(`${number}<br>`)
+
+        // toFixed() -> to says how many numbers or digits to be printed after decimal
+        document.write(`${number.toFixed(2)}<br>`);
+        document.write(`${number.toFixed()}<br>`);
+        document.write(`${number.toFixed(1)}<br>`);
+
+        //toPrecision() -> it says how num;ber to be printed from the start
+        document.write(`${number.toPrecision(5)}<br>`)
+        //toExponential()
+        document.write(`${number.toExponential(2)}<br>`)
+        document.write(`${number.toExponential(5)}<br>`)
+        document.write(`${number.toExponential(6)}<br>`)
+        
+        //string to number
+        const x ='123.123'
+        document.write(`${parseInt('123')}<br>`)
+        //Number
+        document.write(`${Number('123.123')}<br>`)
+        //parseInt
+        //parseFloat
+        const y = parseFloat('123.456 is the average mark')
+        document.write(`${y}<br>`)
+    </script>
+</body>
+</html>
+</html>

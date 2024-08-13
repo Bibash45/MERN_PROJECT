@@ -1,0 +1,56 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    margin: 100px 0;
+}
+form{
+    background: linear-gradient(green,blue,white,red,black);
+    box-shadow: 0px 0px 10px black;
+    width: 400px;
+    padding: 10px;
+}
+.label-input{
+    margin-bottom: 10px;
+}
+.label-input label{
+    font-family: "Raleway", sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+.label-input input{
+    border: 3px solid black;
+    width: 380px;
+    padding: 10px;
+}
+.label-input input:focus{
+    border: none;
+    outline: 2px solid royalblue;
+}
+/* attribute selector */
+form input[type="submit"] {
+    background-color: #34C759; /* Use a more specific green color */
+    padding: 10px 15px;
+    font-size: 20px;
+    width: 50%;
+    border: none;
+    font-weight: bold;
+    color: #FFFFFF; /* Use a more specific white color */
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s; /* Add a transition effect */
+  }
+  
+  form input[type="submit"]:hover {
+    background-color: #2E865F; /* Change the background color on hover */
+  }
+.btn{
+    display: flex;
+    justify-content: center;
+}

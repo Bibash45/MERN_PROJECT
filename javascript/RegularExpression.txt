@@ -1,0 +1,18 @@
+Regular Expressions
+
+/ .......regular Expressions goes inside this ../
+^ -> it checks from start
+$ -> it checks from end
+
+[a-z] -> it matches lower case alphabets
+[A-Z] -> it matches upper case alphabets
+[a-zA-Z] -> it matches all the alphabets
+[0-9] -> it matches numeric values
+[a-z0-9] -> it matches alphanumeric values
+
+# to matches the special character we have to use : \ : eg:
+\@ , \#, \?, \_
+
+{minvalue,maxvalue} => {8,30}
+
+?=  -> position doesnot matter

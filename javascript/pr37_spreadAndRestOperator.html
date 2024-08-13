@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spread and rest operator (...)</title>
+  </head>
+  <body>
+    <script>
+      // spread operator
+      const arr1 = [1, 2, 3, 4, 5];
+      const arr2 = [6, 7, 8, 9, 10];
+      const arr3 = [...arr1, ...arr2];
+      console.log(arr3);
+
+      // rest operator
+      const showList = (a,...subjects) => {
+        return ["bootstrap", subjects,a];
+      };
+      const result = showList("html", "css", "js", "express");
+      document.write(`${result}`);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Position</title>
+    <style>
+      .demo {
+        height: 200px;
+        width: 300px;
+        /* background: linear-gradient(
+         to top,
+          red,
+          white,
+          blue,
+          yellow,
+          pink,
+          tomato,
+          purple,
+          orange
+        ); */
+        background: linear-gradient(
+          to bottom right,
+          red,
+          white,
+          blue,
+          yellow,
+          pink,
+          tomato,
+          purple,
+          orange
+        );
+        position: relative;
+        bottom: 12px;
+      }
+      .test {
+        position: absolute;
+        top: 0;
+        right: 0;
+        /* bottom: 0; */
+        height: 200px;
+        width: 200px;
+        background: gray;
+      }
+      .container {
+        height: 200px;
+        width: 500px;
+        margin: 30px auto;
+        background-color: green;
+      }
+      .container img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <pre>
+        1> Static position
+        2> Relative position
+        3> Absolute Position
+        4> Fixed Position
+        5> Sticky Position
+    </pre>
+    <div class="demo"></div>
+    <div class="test"></div>
+    <div class="container">
+      <img
+        src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?cs=srgb&dl=pexels-souvenirpixels-417074.jpg&fm=jpg
+      "
+        alt=""
+      />
+      <button>&lt;</button>
+      <button></button>
+    </div>
+  </body>
+</html>

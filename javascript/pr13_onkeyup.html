@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onkeyup</title>
+  </head>
+  <body>
+    <input type="password" name="pwd" id="pwd" placeholder="keyup" />
+    <input type="password" name="pwd" id="pwd1"  placeholder="keydown" />
+    <h2 id="title"></h2>
+    <h3 id="title1"></h3>
+    <script>
+      const pwdInput = document.getElementById("pwd");
+      const pwdInput1 = document.getElementById("pwd1");
+      const title = document.querySelector("#title");
+      const title1 = document.querySelector("#title1");
+      //   const demoFunction =()=>{
+      //    title.innerHTML = pwdInput.value;
+      //   }
+      pwdInput.addEventListener("keyup",()=>title.innerHTML = pwdInput.value);
+      pwdInput1.addEventListener("keydown",()=>title1.innerHTML = pwdInput1.value);
+
+    </script>
+  </body>
+</html>

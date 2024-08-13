@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+  </head>
+  <body>
+    <form autocomplete="off">
+
+        <fieldset>
+            <legend>Please fill out these fields</legend>
+
+      <label for="fname">First Name</label>
+      <br />
+      <input type="text" id="fname" name="fname" required autofocus />
+      <br />
+      <label for="lname">Last Name</label>
+      <br />
+      <input type="text" name="lname" id="lname" required  autofocus /><br />
+      <label for="email">Email</label>
+      <br />
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="example@gmail.com" required
+      />
+      <br />
+      <label for="pwd">Password</label>
+      <br />
+      <input type="password" name="pwd" id="pwd" required />
+      <br />
+      <label for="dob">Date of Birth</label>
+      <br />
+      <input type="date" name="dob" id="dob" />
+      <br />
+      <label for="gender">Gender</label>
+      <br />
+      <input type="radio" name="gender" id="gender" value="Male" checked />Male
+      <input type="radio" name="gender" id="gender" value="Female" />Female
+      <input type="radio" name="gender" id="gender" value="Other" />Other
+      <br />
+      <label for="sub">Choose any two</label>
+      <br />
+      <input type="checkbox" name="sub" value="Html" />Html
+      <input type="checkbox" name="sub" value="css" />css
+      <input type="checkbox" name="sub" value="python" />python
+      <input type="checkbox" name="sub" value="js" />js
+      <br />
+      <label for="district">District</label>
+      <br />
+      <select>
+        <option value="Kathmandu">Kathmandu</option>
+        <option value="Sindupalchok">Sindupalchok</option>
+        <option value="Dolakha">Dolakha</option>
+        <option value="Sindupalchok">Sindupalchok</option>
+      </select>
+      <br>
+      <textarea name="des" id="des" >text here </textarea>
+      <br>
+      <input type="file" name="file" id="file">
+      <br>
+      <label for="Zipcode">Zipcode</label>
+      <br>
+      <input type="zipcode" name="zipcode" id="zipcode" value="44600" readonly>
+      <br>
+      <label for="search">search</label>
+      <input type="search" name="search" id="search">
+
+      <br /><br />
+      <input type="submit" value="submit" />
+      <input type="reset" name="reset" id="reset" disabled>
+
+      </fieldset>
+
+    </form>
+  </body>
+</html>

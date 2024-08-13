@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        display: grid;
+        /* grid-template-columns: 100px 200px 400px; */
+        /* grid-template-columns: 20% 40% 40%; */
+        /* grid-template-columns: 1fr 2fr 1fr ; */
+        grid-template-columns: 200px auto auto;
+        /* grid-template-rows: 100px 200px 300px ; */
+        grid-template-rows: 20vh 30vh 50vh;
+        /* column-gap: 10px;
+        row-gap: 10px; */
+        gap: 10px;
+      }
+      .item-1 {
+        background-color: greenyellow;
+        /* grid-column-start: 1;
+        grid-column-end: 4; */
+        grid-column: 1/4;
+        
+        display: grid;
+        grid-template-columns: auto auto auto auto auto;
+        list-style: none;
+        align-items: center;
+        font-size: 30px;
+        grid-row: 1;
+
+      }
+      .item-2{
+        background-color: brown;
+        /* grid-row-start: 2;
+        grid-row-end: 2; */
+        grid-row: 2/4;
+      }
+      .item-3{
+        background-color: blueviolet;
+        grid-column: 2/4;
+      }
+      .item-4{
+        background-color: red;
+        justify-self: center;
+        align-self: center;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      
+      <div class="item-2">2</div>
+      <div class="item-3">3</div>
+      <div class="item-4">Box 4</div>
+      <div class="item">5</div>
+      <div class="item">6</div>
+      <div class="item">7</div>
+      <div class="item">8</div>
+      <div class="item">9</div>
+      <div class="item-1">
+        <li>Home</li>
+        <li>About</li>
+        <li>Faq</li>
+        <li>Contact</li>
+        <li>Services</li>
+      </div>
+    </div>
+  </body>
+</html>

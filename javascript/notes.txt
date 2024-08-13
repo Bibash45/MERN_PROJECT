@@ -1,0 +1,19 @@
+JAVASCRIPT 
+-> JS is programming language for web. it is also called as client side scripting language.
+->JS is used to change the behavior of the web page
+->JS is used in frontend development and after the introduction of Node js . it can ve used in backend development.
+
+Frontend library and framework:
+1-> React -> library
+2-> Angular
+3-> Vue
+4-> Ember
+5-> Gatsby
+6-> Sevlet
+
+Backend: 
+1-> Node js
+2-> Express js (Frameword of node js)
+
+Mobile app development:
+1> react native (android as well ios)

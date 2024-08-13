@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Destructure</title>
+</head>
+<body>
+    
+    <script>
+        // Define an array of objects
+        let fruits = ['apple','banana','mango','orange','kiwi'];
+        const [name1,name2,...rest] = fruits;
+        document.write(`${name1}<br>`)
+        document.write(`${name2}<br>`)
+        document.write(`${rest}<br>`)
+
+
+    </script>
+</body>
+</html>
