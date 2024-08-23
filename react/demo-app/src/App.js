@@ -1,15 +1,10 @@
-import './App.css';
-import First from './First';
-import Second from './Second';
+import "./App.css";
+import MyRoute from "./MyRoute";
 
 function App() {
-  return (
-    <div className="App">
-      <h2>React js</h2>
-      <First />
-      <Second />
-    </div>
-  );
+  return <>
+  <MyRoute />
+  </>;
 }
 
 export default App;
