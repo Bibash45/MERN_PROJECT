@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { FaTrash } from "react-icons/fa";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -6,6 +7,28 @@ const Cart = () => {
     const CartData = JSON.parse(localStorage.getItem("cartData"));
     setProducts(CartData);
   }, []);
+  // increase quantity
+  const increaseQty = (id) => {
+    const updateItem = products.map((item) => {
+      if (item.id === id) {
+        return { ...item, quantity: item.quantity + 1 };
+      }
+      return item;
+    });
+    setProducts(updateItem);
+    localStorage.setItem("cartData", JSON.stringify(updateItem));
+  };
+  // decrease quantity
+  const decreaseQty = (id) => {
+    const updateItem = products.map((item) => {
+      if (item.id === id && item.quantity > 1) {
+        return { ...item, quantity: item.quantity - 1 };
+      }
+      return item;
+    });
+    setProducts(updateItem);
+    localStorage.setItem("cartData", JSON.stringify(updateItem));
+  };
   return (
     <>
       <div className="container">
@@ -15,9 +38,9 @@ const Cart = () => {
           ) : (
             <>
               <h2 className="text-center text-success">Your cart Items</h2>
-              <div className="col-md-8">
-                {products.map((item) => (
-                  <>
+              <div className="col-md-8 shadow p-3">
+                {products.map((item, index) => (
+                  <div key={index}>
                     <div className="row d-flex align-items-center ">
                       <div className="col-2">
                         <img src={item.image} alt={item.title} width={100} />
@@ -33,26 +56,47 @@ const Cart = () => {
                         </p>
                       </div>
                       <div className="col-3">
-                        <button className="btn btn-primary">+</button>
+                        <button
+                          className="btn btn-primary"
+                          onClick={() => increaseQty(item.id)}
+                        >
+                          +
+                        </button>
                         &nbsp;
-                        <span>1</span>
+                        <span>{item.quantity}</span>
                         &nbsp;
-                        <button className="btn btn-danger">-</button>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => decreaseQty(item.id)}
+                        >
+                          -
+                        </button>
+                        &nbsp;
+                      </div>
+                      <div className="col-1">
+                        <button className="btn btn-danger">
+                          <FaTrash />
+                        </button>
                       </div>
                     </div>
                     <hr />
-                  </>
+                  </div>
                 ))}
               </div>
               <div className="col-md-3">
                 <h2>Cart Summary</h2>
                 <hr />
                 <p>
-                  <strong>Units:</strong>5
+                  <strong>Units:</strong>
+                  {products.reduce((ac, item) => ac + Number(item.quantity), 0)}
                 </p>
                 <hr />
                 <p>
-                  <strong>Total:</strong> $100
+                  <strong>Total:</strong> $
+                  {products.reduce(
+                    (ac, item) => ac + Number(item.price) * item.quantity,
+                    0
+                  )}
                 </p>
                 <hr />
                 <button className="btn btn-warning">Check Our</button>
