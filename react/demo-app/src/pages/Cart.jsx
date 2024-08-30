@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { FaTrash } from "react-icons/fa";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Cart = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
     const CartData = JSON.parse(localStorage.getItem("cartData"));
     setProducts(CartData);
   }, []);
+
   // increase quantity
   const increaseQty = (id) => {
     const updateItem = products.map((item) => {
@@ -29,8 +31,22 @@ const Cart = () => {
     setProducts(updateItem);
     localStorage.setItem("cartData", JSON.stringify(updateItem));
   };
+
+  // remove item from the cart
+  const removeCartItem = (id, title) => {
+    const confirm = window.confirm(
+      "Are you sure want to delete this item from the cart ?"
+    );
+    if (confirm) {
+      const filtercart = products.filter((item) => item.id !== id);
+      localStorage.setItem("cartData", JSON.stringify(filtercart));
+      setProducts(filtercart);
+      toast.success(`${title} has been deleted from the cart successfully.`);
+    }
+  };
   return (
     <>
+    <ToastContainer theme="colored" position="top-center" className="text-white" />
       <div className="container">
         <div className="row d-flex justify-content-between my-5">
           {products.length === 0 ? (
@@ -74,7 +90,10 @@ const Cart = () => {
                         &nbsp;
                       </div>
                       <div className="col-1">
-                        <button className="btn btn-danger">
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => removeCartItem(item.id, item.title)}
+                        >
                           <FaTrash />
                         </button>
                       </div>
@@ -87,19 +106,19 @@ const Cart = () => {
                 <h2>Cart Summary</h2>
                 <hr />
                 <p>
-                  <strong>Units:</strong>
+                  <strong>Units: </strong>
                   {products.reduce((ac, item) => ac + Number(item.quantity), 0)}
                 </p>
                 <hr />
                 <p>
-                  <strong>Total:</strong> $
+                  <strong>Total: </strong> $
                   {products.reduce(
                     (ac, item) => ac + Number(item.price) * item.quantity,
                     0
                   )}
                 </p>
                 <hr />
-                <button className="btn btn-warning">Check Our</button>
+                <button className="btn btn-warning">Check Out</button>
               </div>
             </>
           )}
