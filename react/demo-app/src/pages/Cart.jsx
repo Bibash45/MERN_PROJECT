@@ -20,6 +20,7 @@ const Cart = () => {
     setProducts(updateItem);
     localStorage.setItem("cartData", JSON.stringify(updateItem));
   };
+  
   // decrease quantity
   const decreaseQty = (id) => {
     const updateItem = products.map((item) => {

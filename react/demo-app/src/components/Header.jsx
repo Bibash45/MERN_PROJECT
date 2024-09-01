@@ -57,9 +57,9 @@ const Header = () => {
             <button type="button" className="btn btn-outline-light me-2">
               Login
             </button>
-            <button type="button" className="btn btn-warning">
+            <Link type="button" to="/register" className="btn btn-warning">
               Sign-up
-            </button>
+            </Link>
           </div>
         </div>
       </div>

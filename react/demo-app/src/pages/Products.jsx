@@ -17,7 +17,7 @@ const Products = () => {
 
   return (
     <>
-      <div className="container-fluid">
+      <div className="container-fluid mt-3">
         <div className="row row-cols-1 row-cols-md-2 row-cols-lg-2 row-cols-xl-4  g-4">
           {product.map((item,i) => {
             return <Card key={i}  data={item} />;
