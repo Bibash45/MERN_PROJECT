@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("cartData"));
+    setProducts(data);
+  }, []);
+
   return (
     <header className="p-3 text-bg-dark">
       <div className="container">
@@ -57,8 +63,12 @@ const Header = () => {
             <button type="button" className="btn btn-outline-light me-2">
               Login
             </button>
-            <Link type="button" to="/register" className="btn btn-warning">
+            <Link type="button" to="/register" className="btn btn-warning me-2">
               Sign-up
+            </Link>
+            <Link to="/cart" className="btn btn-warning">
+              Cart{" "}
+              {products.reduce((ac, item) => ac + Number(item.quantity), 0)}
             </Link>
           </div>
         </div>
