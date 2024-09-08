@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import Cart from "./pages/Cart";
 import Show from "./context/Show";
 import Notfound from "./pages/Notfound";
+import Cartreduce from "./redux/Cartreduce";
 const MyRoute = () => {
   return (
     <Router>
@@ -19,6 +20,7 @@ const MyRoute = () => {
           <Route path="cart" element={<Cart />} />
           <Route path="register" element={<Register />} />
           <Route path="context" element={<Show />} />
+        <Route path="redux" element={<Cartreduce />} />
         </Route>
         <Route path="*" element={<Notfound />} />
       </Routes>
