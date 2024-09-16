@@ -4,17 +4,20 @@ const app = express();
 require("dotenv").config();
 const morgan = require("morgan");
 const categoryRoute = require("./routes/categoryRoute");
+const productRoute = require("./routes/productRoute");
 require("./db/connection");
 const bodyParser = require("body-parser");
 
 // body-parser
 app.use(bodyParser.json());
+app.use("/public/uploads", express.static("public/uploads"));
 
 //morgan
 app.use(morgan("dev"));
 
 // routes
 app.use("/api", categoryRoute);
+app.use("/api", productRoute);
 
 // app.use("/", (req, res) => {
 //   res.json([{ message: "This is express server" }]);

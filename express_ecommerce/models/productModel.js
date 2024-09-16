@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const { objectId } = mongoose.Schema;
+const { ObjectId } = mongoose.Schema;
 // objectId is used to link data between the different collection
 // it is used to create a foreign key in the database
 
@@ -19,16 +19,16 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    product_descrition: {
+    product_description: {
       type: String,
       required: true,
     },
     product_image: {
-      type: string,
+      type: String,
       required: true,
     },
     category: {
-      type: objectId,
+      type: ObjectId,
       require: true,
       ref: "Category",
     },

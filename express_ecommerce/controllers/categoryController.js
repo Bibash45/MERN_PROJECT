@@ -9,11 +9,20 @@ exports.postCategory = async (req, res) => {
   let category = new Category({
     category_name: req.body.category_name,
   });
-  category = await category.save();
-  if (!category) {
-    return res.status(400).json({ error: "something went wrong" });
-  }
-  res.send(category);
+
+  Category.findOne({ category_name: category.category_name }).then(
+    async (categories) => {
+      if (categories) {
+        return res.status(400).json({ error: "category must be unique" });
+      } else {
+        category = await category.save();
+        if (!category) {
+          return res.status(400).json({ error: "something went wrong" });
+        }
+        res.send(category);
+      }
+    }
+  );
 };
 
 // retrive all data
