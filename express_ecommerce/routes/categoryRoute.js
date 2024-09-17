@@ -9,10 +9,11 @@ const {
 } = require("../controllers/categoryController");
 
 const router = express.Router();
+const { categoryValidation, validation } = require("../validation/validator");
 
 router.get("/demo", testFunction);
 
-router.post("/postcategory", postCategory);
+router.post("/postcategory", categoryValidation, validation, postCategory);
 router.get("/categorylist", categoryList);
 router.get("/categorydetails/:id", categoryDetails);
 router.put("/updatecategory/:id", updateCategory);

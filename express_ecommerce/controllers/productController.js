@@ -10,6 +10,7 @@ exports.postProduct = async (req, res) => {
     product_image: req.file.path,
     category: req.body.category,
   });
+  
   product = await product.save();
   if (!product) {
     return res.status(400).json({ error: "something went wrong" });
