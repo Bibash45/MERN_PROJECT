@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-const sendEmail = (options) => {
+const sentEmail = (options) => {
   const transport = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
@@ -10,6 +10,15 @@ const sendEmail = (options) => {
     },
   });
 
+  const mailOptions = {
+    from: options.from,
+    to: options.to,
+    subject: options.subject,
+    text: options.text,
+    html: options.html,
+  };
 
-
+  transport.sendMail(mailOptions);
 };
+
+module.exports = sentEmail;
