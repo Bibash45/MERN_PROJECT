@@ -49,11 +49,18 @@ userSchema
 userSchema.methods = {
   encryptPassword: function (password) {
     try {
-      return crypto.createHmac("sha1", this.salt).update(password).digest("hex");
+      return crypto
+        .createHmac("sha1", this.salt)
+        .update(password)
+        .digest("hex");
     } catch (error) {
       return error;
     }
   },
+  authenticate: function (plainText) {
+    return this.encryptPassword(plainText) === this.hashed_password;
+  },
+  
 };
 
 module.exports = mongoose.model("User", userSchema);
