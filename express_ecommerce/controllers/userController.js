@@ -2,6 +2,8 @@ const User = require("../models/userModel");
 const Token = require("../models/tokenModel");
 const crypto = require("crypto");
 const sendEmail = require("../utils/setEmail");
+const jwt = require("jsonwebtoken");
+const { expressjwt } = require("express-jwt");
 
 // to register user
 exports.postUser = async (req, res) => {
@@ -123,5 +125,117 @@ exports.signin = async (req, res) => {
   if (!user.isVerified) {
     return res.status(400).json({ error: "verify email first to continue" });
   }
+
+  // now generate token with user is,role,and jwt secret
+  const token = jwt.sign(
+    {
+      _id: user._id,
+      role: user.role,
+    },
+    process.env.JWT_SECRET
+  );
+
+  // store token into cookie
+  res.cookie("myCookie", token, { expire: Date.now() + 99999 });
+
+  // return user information to frontend
+  const { _id, name, role } = user;
+
+  res.json({ token, user: { name, role, email, _id } });
+};
+
+// forget password
+exports.forgetPassword = async (req, res) => {
+  const user = await User.findOne({ email: req.body.email });
+  if (!user) {
+    return res
+      .status(400)
+      .json({ error: "email you have provided is not found in our system" });
+  }
+
+  // generate token
+  let token = new Token({
+    token: crypto.randomBytes(16).toString("hex"),
+    userId: user._id,
+  });
+  token = await token.save();
+  if (!token) {
+    return res.status(400).json({ error: "unable to create token" });
+  }
+  // send email to user
+  sendEmail({
+    from: "no-reply@ecommerce.com",
+    to: user.email,
+    subject: "password reset link",
+    text: `hello , \n\n please reset your password by clicking the link below \n\n 
+    http:\/\/${req.headers.host}\/api\/resetpassword\/${token.token}
+    `, //http://localhost:8000/api/confirmation/1234567
+  });
+
+  res.json({ message: "password reset link has been sent successfully" });
+};
+
+// reset password
+exports.resetPassword = async (req, res) => {
+  // find the valid token
+  let token = await Token.findOne({ token: req.params.token });
+
+  if (!token) {
+    return res.status(400).json({
+      error: "invalid token or token has been expired",
+    });
+  }
+  // if we find the valid token, then find the valid user for that token
+  let user = await User.findOne({ _id: token.userId });
+  if (!user) {
+    return res
+      .status(400)
+      .json({ error: "we are unable to find the valid user for this token." });
+  }
+
+  user.password = req.body.password;
+  user = await user.save();
+  if (!user) {
+    return res.status(400).json({
+      error: "unable to reset  password",
+    });
+  }
+
+  res.json({
+    message: "password has been reset successfully. login to continue",
+  });
+};
+
+// userlists
+exports.userList = async (req, res) => {
+  let user = await User.find().select("-hashed_password").select("-salt");
+  if (!user) {
+    return res
+      .status(400)
+      .json({ error: "no user found, something went wrong" });
+  }
   res.send(user);
+};
+
+// userdetail
+exports.userDetails = async (req, res) => {
+  console.log(req.params.id);
+
+  let user = await User.findById(req.params.id)
+    .select("-hashed_password")
+    .select("-salt");
+  if (!user) {
+    return res
+      .status(400)
+      .json({ error: "user not found, something went wrong" });
+  }
+  res.send(user);
+};
+
+// signout
+exports.signout = (req, res) => {
+  res.clear("myCookie");
+  res.json({
+    message: "signout success",
+  });
 };

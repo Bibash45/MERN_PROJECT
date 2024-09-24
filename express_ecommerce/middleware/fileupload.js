@@ -39,7 +39,7 @@ let imageFilter=(req,file,cb)=>{
 const upload=multer({
     storage:storage,
     fileFilter:imageFilter,
-    limit:{
+    limits:{
         fileSize:3000000 //3MB
     }
 })

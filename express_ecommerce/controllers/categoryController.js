@@ -46,18 +46,25 @@ exports.categoryDetails = async (req, res) => {
 
 // to update category
 exports.updateCategory = async (req, res) => {
-  const category = await Category.findByIdAndUpdate(
-    req.params.id,
-    {
-      category_name: req.body.category_name,
-    },
-    { new: true }
-  );
-  if (!category) {
-    return res.status(400).json({ error: "something went wrong" });
+  try {
+    const category = await Category.findByIdAndUpdate(
+      req.params.id,
+      {
+        category_name: req.body.category_name,
+      },
+      { new: true }
+    );
+
+    if (!category) {
+      return res.status(400).json({ error: "Category not found" });
+    }
+
+    res.status(200).json(category);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
   }
-  res.send(category);
 };
+
 
 // delete category
 exports.deleteCategory = (req, res) => {

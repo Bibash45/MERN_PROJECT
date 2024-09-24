@@ -21,9 +21,9 @@ app.use("/api", categoryRoute);
 app.use("/api", productRoute);
 app.use("/api", userRoute);
 
-// app.use("/", (req, res) => {
-//   res.json([{ message: "This is express server" }]);
-// });
+app.use("/", (req, res) => {
+  res.json([{ message: "This is express server" }]);
+});
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
