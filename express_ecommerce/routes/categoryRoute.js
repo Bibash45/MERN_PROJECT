@@ -10,13 +10,29 @@ const {
 
 const router = express.Router();
 const { categoryValidation, validation } = require("../validation/validator");
+const {
+  requireSignin,
+  requireAdmin,
+} = require("../controllers/userController");
 
 router.get("/demo", testFunction);
 
-router.post("/postcategory", categoryValidation, validation, postCategory);
+router.post(
+  "/postcategory",
+  requireSignin,
+  requireAdmin,
+  categoryValidation,
+  validation,
+  postCategory
+);
 router.get("/categorylist", categoryList);
 router.get("/categorydetails/:id", categoryDetails);
-router.put("/updatecategory/:id", updateCategory);
-router.delete("/deletecategory/:id", deleteCategory);
+router.put("/updatecategory/:id", requireSignin, requireAdmin, updateCategory);
+router.delete(
+  "/deletecategory/:id",
+  requireSignin,
+  requireAdmin,
+  deleteCategory
+);
 
 module.exports = router;

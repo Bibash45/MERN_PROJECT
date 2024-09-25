@@ -239,3 +239,52 @@ exports.signout = (req, res) => {
     message: "signout success",
   });
 };
+
+// require signin
+exports.requireSignin = expressjwt({
+  secret: process.env.JWT_SECRET,
+  algorithms: ["HS256"],
+});
+
+// middleware for user role
+exports.requireUser = (req, res, next) => {
+  expressjwt({
+    secret: process.env.JWT_SECRET,
+    algorithms: ["HS256"],
+  })(req, res, (err) => {
+    if (err) {
+      return res
+        .status(400)
+        .send({ message: "you are not authorized to access" });
+    }
+    // check the role
+    if (req.user.role === 0) {
+      next();
+    } else {
+      return res.status(400).json({
+        error: "Forbidden",
+      });
+    }
+  });
+};
+// middleware for admin role
+exports.requireAdmin = (req, res, next) => {
+  expressjwt({
+    secret: process.env.JWT_SECRET,
+    algorithms: ["HS256"],
+  })(req, res, (err) => {
+    if (err) {
+      return res
+        .status(400)
+        .send({ message: "you are not authorized to access" });
+    }
+    // check the role
+    if (req.user.role === 1) {
+      next();
+    } else {
+      return res.status(400).json({
+        error: "Forbidden",
+      });
+    }
+  });
+};
