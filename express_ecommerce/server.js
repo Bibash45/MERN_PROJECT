@@ -5,6 +5,7 @@ require("dotenv").config();
 const morgan = require("morgan");
 const categoryRoute = require("./routes/categoryRoute");
 const productRoute = require("./routes/productRoute");
+const orderRoute = require("./routes/orderRoute");
 const userRoute = require("./routes/userRoute");
 require("./db/connection");
 const bodyParser = require("body-parser");
@@ -20,6 +21,7 @@ app.use(morgan("dev"));
 app.use("/api", categoryRoute);
 app.use("/api", productRoute);
 app.use("/api", userRoute);
+app.use("/api", orderRoute);
 
 app.use("/", (req, res) => {
   res.json([{ message: "This is express server" }]);
