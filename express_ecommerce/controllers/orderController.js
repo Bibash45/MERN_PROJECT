@@ -97,10 +97,27 @@ exports.userOrders = async (req, res) => {
     })
     .sort({ createdAt: -1 });
 
-    if (!userOrderList) {
-      return res
-        .status(400)
-        .json({ message: "No orders found,some thing went wrong" });
-    }
-    res.send(userOrderList);
+  if (!userOrderList) {
+    return res
+      .status(400)
+      .json({ message: "No orders found,some thing went wrong" });
+  }
+  res.send(userOrderList);
+};
+
+// update status
+exports.updateStatus = async (req, res) => {
+  const order = await Order.findByIdAndUpdate(
+    req.params.id,
+    {
+      status: req.body.status,
+    },
+    { new: true }
+  );
+  if (!order) {
+    return res.status(400).json({
+      error: "something went wrong",
+    });
+  }
+  res.send(order);
 };
