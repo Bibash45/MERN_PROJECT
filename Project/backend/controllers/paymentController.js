@@ -13,3 +13,5 @@ exports.processPayment = async (req, res) => {
 exports.sendStripeApi = async (req, res) => {
   res.json({ stripeApiKey: process.env.STRIPE_API_KEY });
 };
+
+

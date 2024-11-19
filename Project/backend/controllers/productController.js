@@ -36,7 +36,7 @@ exports.postProduct = async (req, res) => {
 
 // retrieve all product
 exports.productList = async (req, res) => {
-  const product = await Product.find().populate("category", "category_name");
+  const product = await Product.find().populate("category", "_id category_name");
   if (!product) {
     return res.status(400).json({ error: "something went wrong" });
   }
