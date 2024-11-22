@@ -239,7 +239,7 @@ exports.userDetails = async (req, res) => {
 
 // signout
 exports.signout = (req, res) => {
-  res.clear("myCookie");
+  res.clearCookie("myCookie"); 
   res.json({
     message: "signout success",
   });

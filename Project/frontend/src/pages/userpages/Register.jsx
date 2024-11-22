@@ -17,7 +17,6 @@ const Register = () => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  console.log(name, email, password, success);
 
   const handleSubmit = (e) => {
     e.preventDefault();

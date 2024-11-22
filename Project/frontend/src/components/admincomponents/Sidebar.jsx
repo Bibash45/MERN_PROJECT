@@ -1,5 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import { isAuthenticated, signout } from "../../auth";
 const Sidebar = () => {
+  const { user } = isAuthenticated();
+  const navigate = useNavigate();
+
+
   return (
     <>
       <button
@@ -234,6 +239,7 @@ const Sidebar = () => {
             </li>
             <li>
               <Link
+                onClick={() => signout(()=>navigate("/login"))}
                 to="#"
                 className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
               >
@@ -252,7 +258,7 @@ const Sidebar = () => {
                     d="M1 8h11m0 0L8 4m4 4-4 4m4-11h3a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-3"
                   />
                 </svg>
-                <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+                <span className="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
               </Link>
             </li>
             <li>

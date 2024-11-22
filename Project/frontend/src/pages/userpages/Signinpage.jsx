@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signin } from "../../auth";
+import { signin, authenticate, isAuthenticated } from "../../auth";
 
 const Signinpage = () => {
   const navigate = useNavigate();
+  const { user } = isAuthenticated();
+
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -26,7 +28,9 @@ const Signinpage = () => {
         if (data.error) {
           setValues({ ...values, error: data.error });
         } else {
-          navigate("/");
+          authenticate(data, () => {
+            setValues({ ...values, redirectToPage: true });
+          });
         }
       })
       .catch((err) => {
@@ -38,6 +42,16 @@ const Signinpage = () => {
         console.error(err);
       });
   };
+
+  useEffect(() => {
+    if (redirectToPage) {
+      if (user && user.role === 1) {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
+    }
+  }, [redirectToPage, navigate, user]);
 
   const showError = () => {
     return (
