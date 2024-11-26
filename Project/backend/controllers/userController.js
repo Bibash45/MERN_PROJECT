@@ -273,23 +273,25 @@ exports.requireUser = (req, res, next) => {
   });
 };
 // middleware for admin role
-exports.requireAdmin = (req, res, next) => {
+exports.requireAdmin = [
   expressjwt({
     secret: process.env.JWT_SECRET,
     algorithms: ["HS256"],
-  })(req, res, (err) => {
-    if (err) {
+    requestProperty: "auth", // Attach the decoded token to req.auth
+  }),
+  (req, res, next) => {
+    try {
+      // Check if req.auth exists and if the role is admin
+      if (req.auth && req.auth.role === 1) {
+        req.user = req.auth; // Attach the user data for later use
+        next();
+      } else {
+        return res.status(403).json({ error: "Access denied. Admins only." });
+      }
+    } catch (err) {
       return res
-        .status(400)
-        .send({ message: "you are not authorized to access" });
+        .status(401)
+        .json({ error: "Unauthorized. Token verification failed." });
     }
-    // check the role
-    if (req.user.role === 1) {
-      next();
-    } else {
-      return res.status(400).json({
-        error: "Forbidden",
-      });
-    }
-  });
-};
+  },
+];

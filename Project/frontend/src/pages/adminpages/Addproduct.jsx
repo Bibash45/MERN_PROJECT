@@ -1,11 +1,10 @@
-
 const Addproduct = () => {
-  return (
-    <>
+  return <>
+  
 
-add product
-    </>
-  )
-}
 
-export default Addproduct
+
+  </>;
+};
+
+export default Addproduct;
