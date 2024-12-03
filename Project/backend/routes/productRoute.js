@@ -32,6 +32,7 @@ router.put(
   upload.single("product_image"),
   updateProduct
 );
+
 router.delete("/deleteproduct/:id", requireSignin, requireAdmin, deleteProduct);
 
 module.exports = router;
