@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { FaCartArrowDown } from "react-icons/fa6";
 import { isAuthenticated, signout } from "../../auth";
+import logo from "../../assets/images/logo.png"
 const Header = () => {
   const navigate = useNavigate();
   return (
@@ -12,12 +13,12 @@ const Header = () => {
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
             <img
-              src="https://flowbite.com/docs/images/logo.svg"
-              className="h-8"
+              src={logo}
+              className="w-14"
               alt="Flowbite Logo"
             />
-            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-              Flowbite
+            <span className="self-center text-2xl font-semibold whitespace-nowrap ">
+              <span className="text-red-900">Hamro</span>Bazar
             </span>
           </Link>
           <div className="flex items-center space-x-6 rtl:space-x-reverse">
@@ -45,11 +46,11 @@ const Header = () => {
             {!isAuthenticated() && (
               <Link
                 to="/login"
-                className="text-sm  text-blue-600 dark:text-blue-500 hover:underline"
+                className="text-sm  text-white-600 dark:text-white-500 hover:underline"
               >
                 <button
                   type="button"
-                  className="text-gray-900 bg-gradient-to-r from-lime-200 via-lime-400 to-lime-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-lime-300 dark:focus:ring-lime-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                  className="text-white bg-gradient-to-r from-red-200 via-red-400 to-red-500 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
                 >
                   Sign in
                 </button>
@@ -58,7 +59,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <nav className="bg-cyan-200 dark:bg-gray-700 shadow-md">
+      <nav className="bg-red-100 dark:bg-gray-700 shadow-md">
         <div className="max-w-screen-xl px-4 py-3 mx-auto">
           <div className="flex items-center">
             <ul className="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
