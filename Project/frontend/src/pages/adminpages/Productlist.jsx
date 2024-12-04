@@ -137,14 +137,14 @@ const Productlist = () => {
                   <div className="flex gap-4">
                     <Link
                       to={`/admin/updateproduct/${product._id}`}
-                      className=" text-3xl font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                      className=" text-3xl font-medium text-blue-600 dark:text-blue-500 hover:underline hover:text-blue-300"
                     >
                       <FaEdit />
                     </Link>
                     <Link
                       to="#"
                       onClick={() => handleDeleteProduct(product._id)}
-                      className="text-3xl font-medium  text-red-600 hover:underline"
+                      className="text-3xl font-medium  text-red-600 hover:underline hover:text-red-300"
                     >
                       <RiDeleteBin5Line />
                     </Link>

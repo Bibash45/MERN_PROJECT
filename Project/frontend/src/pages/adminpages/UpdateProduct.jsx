@@ -91,7 +91,7 @@ const UpdateProduct = () => {
         countInStock: "",
         category: "",
       });
-      
+
       navigate("/admin/productlist");
     } catch (error) {
       const message = error.response?.data?.message || "Something went wrong";
@@ -119,7 +119,10 @@ const UpdateProduct = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="mx-28 px-10 py-10 shadow-xl border border-blue-500 rounded-xl">
+      <form
+        onSubmit={handleSubmit}
+        className="mx-28 px-10 py-10 shadow-xl border border-blue-500 rounded-xl"
+      >
         {showError()}
         {showSuccess()}
 
@@ -171,6 +174,16 @@ const UpdateProduct = () => {
           <label className="flex items-center mb-2 text-gray-600 text-sm font-medium">
             Product Image
           </label>
+          {product.product_image && (
+            <>
+              <div className="mb-4">
+                <img
+                  className="w-20 h-20 object-cover mb-2 ml-3"
+                  src={`http://localhost:8000/${product.product_image}`}
+                />
+              </div>
+            </>
+          )}
           <input
             onChange={onHandleImage}
             type="file"
@@ -200,7 +213,7 @@ const UpdateProduct = () => {
           </label>
           <select
             onChange={onHandleChange}
-            value={product.category}
+            value={product.category_name}
             name="category"
             className="block w-full h-11 px-5 bg-white border border-gray-300 rounded-full text-black"
             required

@@ -13,6 +13,7 @@ import Addcategory from "./pages/adminpages/Addcategory";
 import Categorylist from "./pages/adminpages/Categorylist";
 import EmailVerify from "./auth/EmailVerify";
 import UpdateProduct from "./pages/adminpages/UpdateProduct";
+import UpdateCategory from "./pages/adminpages/UpdateCategory";
 const Myroute = () => {
   return (
     <>
@@ -35,6 +36,7 @@ const Myroute = () => {
             <Route path="updateproduct/:productId" element={<UpdateProduct />} />
             <Route path="productlist" element={<Productlist />} />
             <Route path="categorylist" element={<Categorylist />} />
+            <Route path="updatecategory/:categoryId" element={<UpdateCategory />} />
             <Route path="addcategory" element={<Addcategory />} />
           </Route>
         </Routes>
