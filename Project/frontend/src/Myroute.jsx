@@ -14,6 +14,7 @@ import Categorylist from "./pages/adminpages/Categorylist";
 import EmailVerify from "./auth/EmailVerify";
 import UpdateProduct from "./pages/adminpages/UpdateProduct";
 import UpdateCategory from "./pages/adminpages/UpdateCategory";
+import ProductDetails from "./pages/userpages/ProductDetails";
 const Myroute = () => {
   return (
     <>
@@ -23,6 +24,7 @@ const Myroute = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Homepage />} />
             <Route path="product" element={<Product />} />
+            <Route path="productdetail/:productId" element={<ProductDetails />} />
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Signinpage />} />
             <Route path="cart" element={<CartPage />} />
@@ -38,6 +40,7 @@ const Myroute = () => {
             <Route path="categorylist" element={<Categorylist />} />
             <Route path="updatecategory/:categoryId" element={<UpdateCategory />} />
             <Route path="addcategory" element={<Addcategory />} />
+          
           </Route>
         </Routes>
       </Router>

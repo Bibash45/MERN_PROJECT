@@ -1,39 +1,16 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-const Cards = () => {
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
+import { Link } from "react-router-dom";
 
-  useEffect(() => {
-    const fetchproduct = async () => {
-      setError("");
-      setSuccess(false);
-      setLoading(true);
-      try {
-        const { data } = await axios.get(`/api/productlist`);
-        console.log(data);
-        setProduct(data);
-        setLoading(false);
-        setSuccess(true);
-        return data;
-      } catch (error) {
-        setError("Error fetching data");
-        setLoading(false);
-        console.error(error);
-      }
-    };
-    fetchproduct();
-  }, []);
+const Cards = ({ product }) => {
+  if (product.length === 0) {
+    return <h2 className="my-5 font-medium text-3xl text-center bg-red-500 py-2 text-white">No products found!!!</h2>;
+  }
   return (
     <>
-      <section className="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12 px-10 my-10">
+      <section className="bg-gray-50 py-8 antialiased dark:bg-gray-900 md:py-12 px-10 mb-10 mt-6">
         <div className="mx-auto max-w-screen-xl px-4 2xl:px-0">
           <div className="mb-4 items-end justify-between space-y-4 sm:flex sm:space-y-0 md:mb-8"></div>
           <div className="mb-4 grid gap-4 sm:grid-cols-2 md:mb-8 lg:grid-cols-3 xl:grid-cols-4">
             {product.map((item) => {
-              const { product_image } = item;
               return (
                 <div
                   key={item._id}
@@ -44,13 +21,11 @@ const Cards = () => {
                       <img
                         className="mx-auto h-full dark:hidden"
                         src={`http://localhost:8000/${item.product_image}`}
-
                         alt=""
                       />
                       <img
                         className="mx-auto hidden h-full dark:block"
                         src={`http://localhost:8000/${item.product_image}`}
-
                         alt=""
                       />
                     </a>
@@ -258,7 +233,7 @@ const Cards = () => {
 
                       <button
                         type="button"
-                        className="inline-flex items-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                        className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                       >
                         <svg
                           className="-ms-2 me-2 h-5 w-5"
@@ -279,6 +254,35 @@ const Cards = () => {
                         </svg>
                         Add to cart
                       </button>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between gap-4">
+                      <Link
+                        to={`/productdetail/${item._id}`}
+                        type="button"
+                        className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 gap-x-2"
+                      >
+                        <svg
+                          className="h-5 w-5"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="24"
+                          height="24"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            d="M21 12c0 1.2-4.03 6-9 6s-9-4.8-9-6c0-1.2 4.03-6 9-6s9 4.8 9 6Z"
+                          />
+                          <path
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                          />
+                        </svg>
+                        View Detail
+                      </Link>
                     </div>
                   </div>
                 </div>

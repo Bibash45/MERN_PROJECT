@@ -5,7 +5,7 @@ const Homepage = () => {
   return (
     <>
       <Carousel />
-      <Cards />
+      <Cards product={[]}/>
     </>
   );
 };
