@@ -226,7 +226,7 @@ const Cards = ({ product }) => {
                       </li>
                     </ul>
 
-                    <div className="mt-4 flex items-center justify-between gap-4">
+                    {/* <div className="mt-4 flex items-center justify-between gap-4">
                       <p className="text-2xl font-extrabold leading-tight text-gray-900 dark:text-white">
                         ${item.product_price}
                       </p>
@@ -254,7 +254,7 @@ const Cards = ({ product }) => {
                         </svg>
                         Add to cart
                       </button>
-                    </div>
+                    </div> */}
                     <div className="mt-4 flex items-center justify-between gap-4">
                       <Link
                         to={`/productdetail/${item._id}`}
