@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 export const CartPage = () => {
   const [cartData, setCardData] = useState([]);
+  const [shipping, setshipping] = useState(10);
+  const [tax, setTax] = useState(25);
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("cartItems"));
@@ -13,6 +15,15 @@ export const CartPage = () => {
       setCardData([...updatedData]);
     }
   }, []);
+
+  useEffect(() => {
+    const total = cartData.reduce((acc, item) => acc + Number(item.price), 0);
+    if (total > 200) {
+      setshipping(0);
+    } else {
+      setshipping(10);
+    }
+  }, [cartData]);
 
   // Increase quantity and update price
   const handleIncrease = (id) => {
@@ -514,28 +525,34 @@ export const CartPage = () => {
                     <div className="space-y-2">
                       <dl className="flex items-center justify-between gap-4">
                         <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
-                          Original price
-                        </dt>
-                        <dd className="text-base font-medium text-gray-900 dark:text-white">
-                          $7,592.00
-                        </dd>
-                      </dl>
-
-                      <dl className="flex items-center justify-between gap-4">
-                        <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
-                          Savings
+                          Units
                         </dt>
                         <dd className="text-base font-medium text-green-600">
-                          -$299.00
+                          {cartData.reduce(
+                            (acc, item) => acc + Number(item.quantity),
+                            0
+                          )}
                         </dd>
                       </dl>
 
                       <dl className="flex items-center justify-between gap-4">
                         <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
-                          Store Pickup
+                          Total
                         </dt>
                         <dd className="text-base font-medium text-gray-900 dark:text-white">
-                          $99
+                          $
+                          {cartData.reduce(
+                            (acc, item) => acc + Number(item.price),
+                            0
+                          )}
+                        </dd>
+                      </dl>
+                      <dl className="flex items-center justify-between gap-4">
+                        <dt className="text-base font-normal text-gray-500 dark:text-gray-400">
+                          Shipping
+                        </dt>
+                        <dd className="text-base font-medium text-gray-900 dark:text-white">
+                          ${shipping}
                         </dd>
                       </dl>
 
@@ -544,17 +561,23 @@ export const CartPage = () => {
                           Tax
                         </dt>
                         <dd className="text-base font-medium text-gray-900 dark:text-white">
-                          $799
+                          ${tax}
                         </dd>
                       </dl>
                     </div>
 
                     <dl className="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 dark:border-gray-700">
                       <dt className="text-base font-bold text-gray-900 dark:text-white">
-                        Total
+                        Total amount
                       </dt>
                       <dd className="text-base font-bold text-gray-900 dark:text-white">
-                        $8,191.00
+                        $
+                        {cartData.reduce(
+                          (acc, item) => acc + Number(item.price),
+                          0
+                        ) +
+                          shipping +
+                          tax}
                       </dd>
                     </dl>
                   </div>

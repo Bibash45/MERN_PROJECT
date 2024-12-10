@@ -213,7 +213,7 @@ const UpdateProduct = () => {
           </label>
           <select
             onChange={onHandleChange}
-            value={product.category_name}
+            value={product.category}
             name="category"
             className="block w-full h-11 px-5 bg-white border border-gray-300 rounded-full text-black"
             required
