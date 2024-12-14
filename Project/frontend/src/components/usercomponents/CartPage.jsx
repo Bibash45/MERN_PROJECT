@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 export const CartPage = () => {
+  const navigate = useNavigate();
   const [cartData, setCardData] = useState([]);
   const [shipping, setshipping] = useState(10);
   const [tax, setTax] = useState(25);
@@ -70,6 +71,16 @@ export const CartPage = () => {
   const clearCart = () => {
     setCardData([]);
     localStorage.removeItem("cartItems");
+  };
+
+  // shipping handle
+  const handleShipping = (shipping) => {
+    const isAuthenticated = JSON.parse(localStorage.getItem("jwt"));
+    if (isAuthenticated) {
+      navigate("/shipping");
+    } else {
+      navigate("/login?redirect=shippng");
+    }
   };
 
   return (
@@ -582,12 +593,13 @@ export const CartPage = () => {
                     </dl>
                   </div>
 
-                  <Link
+                  <button
+                    onClick={handleShipping}
                     to="#"
-                    className="flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                    className="flex w-full items-center justify-center rounded-lg bg-red-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   >
                     Proceed to Checkout
-                  </Link>
+                  </button>
 
                   <div className="flex items-center justify-center gap-2">
                     <span className="text-sm font-normal text-gray-500 dark:text-gray-400">

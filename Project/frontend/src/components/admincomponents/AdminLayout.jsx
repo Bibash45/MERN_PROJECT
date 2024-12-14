@@ -1,4 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
+import "./adminpannel.css";
 import AdminHeader from "./AdminHeader";
 import AdminFooter from "./AdminFooter";
 import { isAuthenticated } from "../../auth";

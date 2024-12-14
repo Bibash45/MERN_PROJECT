@@ -25,10 +25,12 @@ const Product = () => {
 
   return (
     <>
-      {loading && <p>Loading...</p>}
+      {loading && <p className="text-center text-2xl">Loading...</p>}
       {error && <p style={{ color: "red" }}>{error}</p>}
       {!loading && !error && product.length > 0 && <Cards product={product} />}
-      {!loading && !error && product.length === 0 && <p>No products found.</p>}
+      {!loading && !error && product.length === 0 && (
+        <p className="text-center text-2xl">No products found.</p>
+      )}
     </>
   );
 };

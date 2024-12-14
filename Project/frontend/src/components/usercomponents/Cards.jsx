@@ -14,7 +14,7 @@ const Cards = ({ product }) => {
               return (
                 <div
                   key={item._id}
-                  className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800"
+                  className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800 transform transition-all duration-200 hover:scale-105"
                 >
                   <div className="h-56 w-full">
                     <a href="#">
@@ -24,7 +24,7 @@ const Cards = ({ product }) => {
                         alt=""
                       />
                       <img
-                        className="mx-auto hidden h-full dark:block"
+                        className="mx-auto hidden h-full dark:block "
                         src={`http://localhost:8000/${item.product_image}`}
                         alt=""
                       />
@@ -259,7 +259,7 @@ const Cards = ({ product }) => {
                       <Link
                         to={`/productdetail/${item._id}`}
                         type="button"
-                        className="inline-flex items-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 gap-x-2"
+                        className="inline-flex items-center rounded-lg  px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4  focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800 gap-x-2 bg-red-700 hover:bg-red-600"
                       >
                         <svg
                           className="h-5 w-5"

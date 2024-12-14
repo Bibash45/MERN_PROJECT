@@ -15,6 +15,7 @@ import EmailVerify from "./auth/EmailVerify";
 import UpdateProduct from "./pages/adminpages/UpdateProduct";
 import UpdateCategory from "./pages/adminpages/UpdateCategory";
 import ProductDetails from "./pages/userpages/ProductDetails";
+import Shipping from "./pages/userpages/Shipping";
 const Myroute = () => {
   return (
     <>
@@ -24,23 +25,32 @@ const Myroute = () => {
           <Route path="/" element={<Layout />}>
             <Route index element={<Homepage />} />
             <Route path="product" element={<Product />} />
-            <Route path="productdetail/:productId" element={<ProductDetails />} />
+            <Route
+              path="productdetail/:productId"
+              element={<ProductDetails />}
+            />
             <Route path="register" element={<Register />} />
             <Route path="login" element={<Signinpage />} />
             <Route path="cart" element={<CartPage />} />
             <Route path="email/confirmation/:token" element={<EmailVerify />} />
+            <Route path="/shipping" element={<Shipping />} />
           </Route>
 
           {/* route for admin pages */}
           <Route path="/admin" element={<AdminHeader />}>
             <Route index element={<Dashboard />} />
             <Route path="addproduct" element={<Addproduct />} />
-            <Route path="updateproduct/:productId" element={<UpdateProduct />} />
+            <Route
+              path="updateproduct/:productId"
+              element={<UpdateProduct />}
+            />
             <Route path="productlist" element={<Productlist />} />
             <Route path="categorylist" element={<Categorylist />} />
-            <Route path="updatecategory/:categoryId" element={<UpdateCategory />} />
+            <Route
+              path="updatecategory/:categoryId"
+              element={<UpdateCategory />}
+            />
             <Route path="addcategory" element={<Addcategory />} />
-          
           </Route>
         </Routes>
       </Router>
