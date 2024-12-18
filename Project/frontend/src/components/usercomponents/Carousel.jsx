@@ -46,17 +46,19 @@ const CarouselComponent = () => {
       {/* Left Button */}
       <button
         onClick={goToPrevSlide}
-        className="absolute top-[40%] left-0 flex items-center justify-center   bg-red-300  text-white rounded-l-xl  p-2 hover:bg-red-400 hover:text-white"
+        className="absolute top-[40%] left-0 flex items-center justify-center   bg-red-300  text-white rounded-full  p-2 hover:bg-red-400 hover:text-white
+        h-11 w-11
+        "
       >
-        <span className="text-2xl">&lt;</span>
+        <span className="text-2xl flex justify-center text-center">&lt;</span>
       </button>
 
       {/* Right Button */}
       <button
         onClick={goToNextSlide}
-        className="absolute top-[40%] right-0 flex items-center justify-center   bg-red-300  text-white rounded-l-xl  p-2 hover:bg-red-400 hover:text-white"
+        className="absolute top-[40%] right-0 flex items-center justify-center   bg-red-100  text-white rounded-full  p-2 hover:bg-red-400 hover:text-white h-11 w-11"
       >
-        <span className="text-2xl">&gt;</span>
+        <span className="text-2xl ">&gt;</span>
       </button>
 
       {/* Carousel indicators (optional) */}

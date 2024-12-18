@@ -8,7 +8,7 @@ import Addproduct from "./pages/adminpages/Addproduct";
 import Productlist from "./pages/adminpages/Productlist";
 import Register from "./pages/userpages/Register";
 import Signinpage from "./pages/userpages/Signinpage";
-import { CartPage } from "./components/usercomponents/CartPage";
+import { CartPage } from "./pages/userpages/CartPage";
 import Addcategory from "./pages/adminpages/Addcategory";
 import Categorylist from "./pages/adminpages/Categorylist";
 import EmailVerify from "./auth/EmailVerify";
@@ -16,6 +16,8 @@ import UpdateProduct from "./pages/adminpages/UpdateProduct";
 import UpdateCategory from "./pages/adminpages/UpdateCategory";
 import ProductDetails from "./pages/userpages/ProductDetails";
 import Shipping from "./pages/userpages/Shipping";
+import ConfirmOrder from "./pages/userpages/ConfirmOrder";
+import Payment from "./pages/userpages/Payment";
 const Myroute = () => {
   return (
     <>
@@ -34,6 +36,8 @@ const Myroute = () => {
             <Route path="cart" element={<CartPage />} />
             <Route path="email/confirmation/:token" element={<EmailVerify />} />
             <Route path="/shipping" element={<Shipping />} />
+            <Route path="/confirm" element={<ConfirmOrder />} />
+            <Route path="/success" element={<Payment />} />
           </Route>
 
           {/* route for admin pages */}
