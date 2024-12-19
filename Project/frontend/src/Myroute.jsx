@@ -8,7 +8,7 @@ import Addproduct from "./pages/adminpages/Addproduct";
 import Productlist from "./pages/adminpages/Productlist";
 import Register from "./pages/userpages/Register";
 import Signinpage from "./pages/userpages/Signinpage";
-import { CartPage } from "./pages/userpages/CartPage";
+import  CartPage  from "./pages/userpages/CartPage";
 import Addcategory from "./pages/adminpages/Addcategory";
 import Categorylist from "./pages/adminpages/Categorylist";
 import EmailVerify from "./auth/EmailVerify";
